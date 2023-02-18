@@ -7,7 +7,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto text-right">
+          <Nav className="ml-auto text-left">
             <Nav.Link>
               <i className="fas fa-home"></i>Home
             </Nav.Link>
