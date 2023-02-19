@@ -3,6 +3,8 @@
 <h2>The beginning</h2>
 Using the instructions in the Moments walkthrough project, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The boilerplate code from Moments is the starting point of this project. 
+
 
 
 
