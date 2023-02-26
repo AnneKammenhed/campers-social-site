@@ -30,9 +30,9 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>
-      <div className={styles.App}>
-        <h1>Hello campers!</h1>
-        <NavBar />
+        <div className={styles.App}>
+          <h1>Hello campers!</h1>
+          <NavBar />
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h2>Home page</h2>} />
@@ -41,7 +41,7 @@ function App() {
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>
-      </div>
+        </div>
       </SetCurrentUserContext.Provider>
     </CurrentUserContext.Provider>
   );

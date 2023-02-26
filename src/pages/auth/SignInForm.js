@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
@@ -8,8 +8,11 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { SetCurrentUserContext } from "../../App";
 
 function SignInForm() {
+  const setCurrentUser = useContext(SetCurrentUserContext)
+  
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -22,7 +25,8 @@ function SignInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signInData);
+      const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
@@ -75,29 +79,24 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-            <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide}`}
-              type="submit"
-            >
-              Sign in
-            </Button>
+
+            <Button className={`${btnStyles.Button} ${btnStyles.Wide}`}
+              type="submit">Sign in</Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
               </Alert>
             ))}
           </Form>
+
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up now!</span>
+            Don't have an account? <span>Sign up now camper!</span>
           </Link>
         </Container>
       </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-      >
+      <Col md={6} className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}>
         <Image
           className={`${appStyles.FillerImage}`}
           src={"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/KABE_caravan.jpg/800px-KABE_caravan.jpg?20170629234122"}
