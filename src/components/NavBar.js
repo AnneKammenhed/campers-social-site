@@ -1,17 +1,26 @@
 import React, { useContext } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import styles from "../styles/SignInUpForm.module.css";
 import { NavLink } from "react-router-dom"
 import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
-  const currentUser = useContext(CurrentUserContext)
-  const loggedInIcons = <>{currentUser?.username}</>
+  const currentUser = useContext(CurrentUserContext);
+  const loggedInIcons = <>{currentUser?.username}</>;
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin">
+       <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
-      <NavLink to="/signup">
+      <NavLink
+        to="/signup"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
         <i className="fas fa-user-plus"></i>Sign up
       </NavLink>
     </>
