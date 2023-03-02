@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from "../styles/SignInUpForm.module.css";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 import { CurrentUserContext } from "../App";
 
 const NavBar = () => {

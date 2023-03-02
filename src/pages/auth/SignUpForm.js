@@ -49,7 +49,7 @@ const SignUpForm = () => {
               <Form.Control
                 className={styles.Input}
                 type="text"
-                placeholder="Username"
+                placeholder="Camper username"
                 name="username"
                 value={username}
                 onChange={handleChange}
@@ -99,7 +99,7 @@ const SignUpForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Wide}`}
               type="submit"
             >
-              Sign up
+              Sign up camper!
             </Button>
             {errors.non_field_errors?.map((message, idx) => 
               <Alert key={idx} variant="warning" className="mt-3">
