@@ -1,7 +1,8 @@
 .Row {
-    height: calc(100vh - 81px);
+  height: calc(100vh - 81px);
   }
-  .Input {
+
+.Input {
     background: #d4facb;
     border: 1px solid #f0f1f9;
     box-sizing: border-box;
